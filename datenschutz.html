@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung — Ulli Zelle</title>
+  <meta name="description" content="Datenschutzerklärung von Räuber & Töchter UG (haftungsbeschränkt), Berlin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #F2EDE5;
+      --bg2:     #EBE5DB;
+      --bg3:     #E3DDD3;
+      --border:  #D4CCC0;
+      --mid:     #736B63;
+      --text:    #1E1A17;
+      --text2:   #5A5248;
+      --accent:  #7D5C3E;
+      --accent2: #B8844A;
+      --neon:    #FF5C35;
+      --ink:     #1E1A17;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(242,237,229,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 34px; height: 34px;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .nav-logo-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text);
+    }
+    .nav-logo-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text2);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── CONTENT ── */
+    .legal-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 8rem 2rem 5rem;
+    }
+    .legal-content h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+    .legal-content h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .legal-content h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .legal-content p, .legal-content li {
+      color: var(--text2);
+      font-size: 0.92rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .legal-content ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .legal-content a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .legal-content a:hover { border-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg2);
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .footer-logo img {
+      width: 26px; height: 26px;
+      object-fit: contain;
+    }
+    .footer-logo span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .legal-content { padding: 6rem 1.5rem 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Ulli Zelle - Startseite">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="34" height="34">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Ulli Zelle</span>
+        <span class="nav-logo-sub">Interior Design & Workplace Consulting · Berlin</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#projekte">Projekte</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main class="legal-content">
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortliche Stelle</h2>
+    <p>
+      Räuber &amp; Töchter UG (haftungsbeschränkt)<br>
+      Ulrike Zelle<br>
+      <!-- TODO: Vollständige Adresse eintragen -->
+      Musterstraße 1<br>
+      10000 Berlin<br>
+      E-Mail: <a href="mailto:hello@ullizelle.de">hello@ullizelle.de</a>
+    </p>
+
+    <h2>2. Allgemeines zur Datenverarbeitung</h2>
+    <p>
+      Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Diese Datenschutzerklärung informiert Sie darüber, welche personenbezogenen Daten wir auf unserer Website erheben, zu welchem Zweck und auf welcher Rechtsgrundlage wir diese verarbeiten.
+    </p>
+
+    <h2>3. Hosting</h2>
+    <p>
+      Diese Website wird bei GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf dieser Website werden durch den Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles erfasst, die Ihr Browser übermittelt. Dazu gehören:
+    </p>
+    <ul>
+      <li>IP-Adresse des anfragenden Rechners</li>
+      <li>Datum und Uhrzeit des Zugriffs</li>
+      <li>Name und URL der abgerufenen Datei</li>
+      <li>Verwendeter Browser und Betriebssystem</li>
+      <li>Referrer URL</li>
+    </ul>
+    <p>
+      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technisch fehlerfreien Darstellung und Optimierung der Website). GitHub hat sich zur Einhaltung der EU-Datenschutzstandards verpflichtet. Weitere Informationen finden Sie in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.
+    </p>
+
+    <h2>4. Kontaktformular</h2>
+    <p>
+      Wenn Sie uns über das Kontaktformular auf unserer Website eine Nachricht senden, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Projekttyp, Nachricht) an uns übermittelt und gespeichert. Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage).
+    </p>
+    <p>
+      Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach Erledigung des Anliegens gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+    </p>
+
+    <h2>5. Google Fonts (externer Abruf)</h2>
+    <p>
+      Diese Website nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Google Fonts, die von Google (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Schriftarten direkt von den Google-Servern. Dabei wird Ihre IP-Adresse an Google übermittelt.
+    </p>
+    <p>
+      Die Nutzung von Google Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer ansprechenden Darstellung). Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Datenschutzerklärung von Google</a> sowie den <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener">Google Fonts FAQ</a>.
+    </p>
+
+    <h2>6. Cookies</h2>
+    <p>
+      Diese Website verwendet derzeit keine Cookies. Sollte sich dies in Zukunft ändern, werden wir diese Datenschutzerklärung entsprechend aktualisieren und ggf. eine Cookie-Einwilligung einholen.
+    </p>
+
+    <h2>7. Ihre Rechte (Betroffenenrechte)</h2>
+    <p>Sie haben im Rahmen der DSGVO folgende Rechte:</p>
+    <ul>
+      <li><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie haben das Recht, Auskunft über Ihre bei uns gespeicherten personenbezogenen Daten zu verlangen.</li>
+      <li><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie können die Berichtigung unrichtiger oder die Vervollständigung Ihrer Daten verlangen.</li>
+      <li><strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer Daten verlangen, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</li>
+      <li><strong>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Sie können unter bestimmten Voraussetzungen die Einschränkung der Verarbeitung Ihrer Daten verlangen.</li>
+      <li><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Sie können verlangen, dass wir Ihnen Ihre Daten in einem strukturierten, maschinenlesbaren Format übermitteln.</li>
+      <li><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Sie können jederzeit der Verarbeitung Ihrer Daten widersprechen, soweit diese auf Art. 6 Abs. 1 lit. f DSGVO basiert.</li>
+    </ul>
+    <p>
+      Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:hello@ullizelle.de">hello@ullizelle.de</a>
+    </p>
+
+    <h2>8. Beschwerderecht bei der Aufsichtsbehörde</h2>
+    <p>
+      Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren. Die zuständige Aufsichtsbehörde ist:
+    </p>
+    <p>
+      Berliner Beauftragte für Datenschutz und Informationsfreiheit<br>
+      Friedrichstr. 219<br>
+      10969 Berlin<br>
+      <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">www.datenschutz-berlin.de</a>
+    </p>
+
+    <h2>9. Änderungen dieser Datenschutzerklärung</h2>
+    <p>
+      Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an geänderte rechtliche Rahmenbedingungen oder Änderungen unserer Website anzupassen. Es gilt stets die aktuelle, auf unserer Website veröffentlichte Fassung.
+    </p>
+
+    <p style="margin-top: 2rem; color: var(--mid); font-size: 0.8rem;">
+      Stand: März 2026
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="26" height="26">
+      <span>Ulli Zelle</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Ulrike Zelle</span>
+  </footer>
+
+</body>
+</html>

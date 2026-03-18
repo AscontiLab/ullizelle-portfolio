@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Ulli Zelle</title>
+  <meta name="description" content="Impressum von Räuber & Töchter UG (haftungsbeschränkt), Berlin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #F2EDE5;
+      --bg2:     #EBE5DB;
+      --bg3:     #E3DDD3;
+      --border:  #D4CCC0;
+      --mid:     #736B63;
+      --text:    #1E1A17;
+      --text2:   #5A5248;
+      --accent:  #7D5C3E;
+      --accent2: #B8844A;
+      --neon:    #FF5C35;
+      --ink:     #1E1A17;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(242,237,229,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 34px; height: 34px;
+      object-fit: contain;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .nav-logo-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text);
+    }
+    .nav-logo-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text2);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── CONTENT ── */
+    .legal-content {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 8rem 2rem 5rem;
+    }
+    .legal-content h1 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+    .legal-content h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .legal-content p {
+      color: var(--text2);
+      font-size: 0.92rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+    .legal-content a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .legal-content a:hover { border-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg2);
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .footer-logo img {
+      width: 26px; height: 26px;
+      object-fit: contain;
+    }
+    .footer-logo span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .legal-content { padding: 6rem 1.5rem 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Ulli Zelle - Startseite">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="34" height="34">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Ulli Zelle</span>
+        <span class="nav-logo-sub">Interior Design & Workplace Consulting · Berlin</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#projekte">Projekte</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <main class="legal-content">
+    <h1>Impressum</h1>
+
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>
+      Räuber &amp; Töchter UG (haftungsbeschränkt)<br>
+      Ulrike Zelle<br>
+      <!-- TODO: Vollständige Adresse eintragen -->
+      Musterstraße 1<br>
+      10000 Berlin
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:hello@ullizelle.de">hello@ullizelle.de</a>
+    </p>
+
+    <h2>Handelsregister</h2>
+    <p>
+      <!-- TODO: Handelsregisterdaten eintragen -->
+      Registergericht: Amtsgericht Charlottenburg<br>
+      Registernummer: HRB [XXXXX]
+    </p>
+
+    <h2>Umsatzsteuer-ID</h2>
+    <p>
+      <!-- TODO: USt-IdNr. eintragen -->
+      Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br>
+      DE [XXXXXXXXX]
+    </p>
+
+    <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+    <p>
+      Ulrike Zelle<br>
+      <!-- TODO: Vollständige Adresse eintragen -->
+      Musterstraße 1<br>
+      10000 Berlin
+    </p>
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+    </p>
+    <p>
+      Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+    </p>
+    <p>
+      Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+    </p>
+    <p>
+      Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+    </p>
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="26" height="26">
+      <span>Ulli Zelle</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
+    </ul>
+    <span class="footer-copy">&copy; 2026 Ulrike Zelle</span>
+  </footer>
+
+</body>
+</html>

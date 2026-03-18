@@ -4,15 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ulli Zelle — Interior & Product Design Berlin</title>
+  <meta name="description" content="Ulli Zelle gestaltet Wohn-, Büro- und Retailräume in Berlin und bundesweit. 15 Jahre Erfahrung in Interior Design, Workplace Consulting und Product Design – funktional, inspirierend, individuell.">
+  <meta name="keywords" content="Interior Design Berlin, Innenarchitektur Berlin, Workplace Consulting, Bürogestaltung, Raumplanung, Product Design, Retail Design, Wohnraumgestaltung, Ulli Zelle, Räuber und Töchter">
+  <meta name="author" content="Ulli Zelle">
+  <link rel="canonical" href="https://ullizelle.de/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ulli Zelle — Interior & Product Design Berlin">
+  <meta property="og:description" content="Wohn-, Büro- und Retailräume, die funktionieren, inspirieren und bleiben. Interior Design aus Berlin – für Privatpersonen und Unternehmen.">
+  <meta property="og:url" content="https://ullizelle.de/">
+  <meta property="og:image" content="https://ullizelle.de/images/ikea_01_simplicity_frontal.jpg">
+  <meta property="og:image:width" content="1288">
+  <meta property="og:image:height" content="952">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Ulli Zelle Interior Design">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ulli Zelle — Interior & Product Design Berlin">
+  <meta name="twitter:description" content="Wohn-, Büro- und Retailräume, die funktionieren, inspirieren und bleiben. Interior Design aus Berlin.">
+  <meta name="twitter:image" content="https://ullizelle.de/images/ikea_01_simplicity_frontal.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Räuber & Töchter UG",
+    "alternateName": "Ulli Zelle Interior Design",
+    "url": "https://ullizelle.de",
+    "image": "https://ullizelle.de/images/ikea_01_simplicity_frontal.jpg",
+    "description": "Interior Design, Workplace Consulting und Product Design in Berlin und bundesweit. Über 50 Projekte in 15 Jahren.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Ulli Zelle",
+      "jobTitle": "Interior & Product Designerin",
+      "url": "https://ullizelle.de",
+      "sameAs": ["https://www.linkedin.com/in/ulli-zelle"]
+    },
+    "serviceType": ["Interior Design", "Workplace Consulting", "Retail Design", "Product Design", "Wohnraumgestaltung"],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Deutschland"
+    },
+    "email": "hallo@ullizelle.de",
+    "knowsLanguage": ["de", "en"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:      #F2EDE5;
       --bg2:     #EBE5DB;
       --bg3:     #E3DDD3;
       --border:  #D4CCC0;
-      --mid:     #9A9088;
+      --mid:     #736B63; /* verbessert von #9A9088 fuer WCAG AA Kontrast auf --bg */
       --text:    #1E1A17;
       --text2:   #5A5248;
       --accent:  #7D5C3E;
@@ -669,6 +724,52 @@
     .footer-links a:hover { color: var(--accent); }
     .footer-copy { font-size: 0.65rem; color: var(--mid); }
 
+    /* ── SKIP TO CONTENT ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 200;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 0.5rem;
+    }
+
+    /* ── FORM MESSAGES ── */
+    .form-msg {
+      margin-top: 1rem;
+      padding: 0.8rem 1.2rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      display: none;
+    }
+    .form-msg.success {
+      display: block;
+      background: rgba(125,92,62,0.1);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .form-msg.error {
+      display: block;
+      background: rgba(255,92,53,0.08);
+      border: 1px solid var(--neon);
+      color: var(--neon);
+    }
+    .form-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .form-input.invalid, .form-textarea.invalid {
+      border-bottom: 2px solid var(--neon);
+    }
+
     /* ── LIGHTBOX ── */
     .lightbox-overlay {
       position: fixed; inset: 0;
@@ -781,23 +882,26 @@
 </head>
 <body>
 
-  <nav id="nav">
-    <a href="#" class="nav-logo">
-      <img src="images/uz_logo_transparent.png" alt="UZ">
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
+
+  <nav id="nav" aria-label="Hauptnavigation">
+    <a href="#" class="nav-logo" aria-label="Ulli Zelle - Startseite">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="34" height="34">
       <div class="nav-logo-text">
         <span class="nav-logo-name">Ulli Zelle</span>
         <span class="nav-logo-sub">Interior Design & Workplace Consulting · Berlin</span>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#projekte">Projekte</a></li>
-      <li><a href="#leistungen">Leistungen</a></li>
-      <li><a href="#prozess">Prozess</a></li>
-      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      <li><a href="#projekte" aria-label="Projekte ansehen">Projekte</a></li>
+      <li><a href="#leistungen" aria-label="Leistungen anzeigen">Leistungen</a></li>
+      <li><a href="#prozess" aria-label="Arbeitsprozess">Prozess</a></li>
+      <li><a href="#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">Kontakt</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
+  <main id="main-content">
   <section class="hero">
     <div class="hero-left">
       <p class="hero-eyebrow">Interior Design & Workplace Consulting · Berlin</p>
@@ -810,12 +914,12 @@
         Für Privatpersonen und Unternehmen in Berlin und bundesweit.
       </p>
       <div class="hero-actions">
-        <a href="#projekte" class="btn-primary">Projekte ansehen →</a>
-        <a href="#kontakt" class="btn-ghost">Beratungsgespräch →</a>
+        <a href="#projekte" class="btn-primary" aria-label="Projekte ansehen">Projekte ansehen →</a>
+        <a href="#kontakt" class="btn-ghost" aria-label="Beratungsgespräch vereinbaren">Beratungsgespräch →</a>
       </div>
     </div>
     <div class="hero-right">
-      <img src="images/ikea_01_simplicity_frontal.jpg" alt="Interior Design Berlin">
+      <img src="images/ikea_01_simplicity_frontal.jpg" alt="Moderner Konferenzraum - Interior Design Projekt von Ulli Zelle in Berlin" width="1288" height="952" fetchpriority="high" decoding="async">
 
     </div>
   </section>
@@ -833,7 +937,7 @@
     <p class="section-eyebrow reveal">Studio</p>
     <div class="about-grid">
       <div class="about-portrait reveal">
-        <img src="images/WhatsApp_Image_2026-03-10_at_19_33_46.jpeg" alt="Ulli Zelle">
+        <img src="images/WhatsApp_Image_20260310_at_19_33_46.jpeg" alt="Ulli Zelle - Interior Designerin aus Berlin" width="1036" height="1036" loading="lazy" decoding="async">
       </div>
       <div>
         <h2 class="section-title reveal" style="margin-bottom:2rem;">Über<br>mich</h2>
@@ -860,7 +964,7 @@
 
       <div class="project-card" onclick="openLightbox('kpm')">
         <div class="proj-inner">
-          <img src="images/kpm_02_lounge_blau.jpg" alt="KPM">
+          <img src="images/kpm_02_lounge_blau.jpg" width="980" height="980" loading="lazy" decoding="async" alt="KPM Königliche Porzellan-Manufaktur - Lounge im Flagship Store Berlin">
           <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
         </div>
         <div class="proj-info">
@@ -874,7 +978,7 @@
 
       <div class="project-card" onclick="openLightbox('amberra')">
         <div class="proj-inner">
-          <img src="images/amberra_01_halle_gewoelbe.jpg" alt="Amberra">
+          <img src="images/amberra_01_halle_gewoelbe.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="Amberra HQ Berlin - Workplace Design im historischen Gewölbegebäude">
           <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
         </div>
         <div class="proj-info">
@@ -888,7 +992,7 @@
 
       <div class="project-card" onclick="openLightbox('ikea')">
         <div class="proj-inner">
-          <img src="images/ikea_01_simplicity_frontal.jpg" alt="Ikea Office">
+          <img src="images/ikea_01_simplicity_frontal.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="Ikea Office Berlin Spandau - Konferenzbereich Design">
           <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
         </div>
         <div class="proj-info">
@@ -902,7 +1006,7 @@
 
       <div class="project-card" onclick="openLightbox('kpm')">
         <div class="proj-inner">
-          <img src="images/kpm_01_lab_kueche.jpg" alt="KPM Lab">
+          <img src="images/kpm_01_lab_kueche.jpg" width="1568" height="784" loading="lazy" decoding="async" alt="KPM Lab & Kitchen - Erlebnisraum im Flagship Store Berlin">
           <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
         </div>
         <div class="proj-info">
@@ -924,17 +1028,17 @@
     <div class="services-grid reveal">
       <div class="service-card">
         <div class="service-num">01</div>
-        <div class="service-title">Wohn&shy;raum</div>
+        <h3 class="service-title">Wohn&shy;raum</h3>
         <p class="service-desc">Vom ersten Gespräch bis zum fertigen Zuhause. Raumplanung, Materialien, Licht, Möbel – alles aus einer Hand.</p>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
-        <div class="service-title">Büro & Workplace</div>
+        <h3 class="service-title">Büro & Workplace</h3>
         <p class="service-desc">Arbeitswelten, die zur Unternehmenskultur passen. Büros, in denen Teams fokussiert arbeiten und sich gerne aufhalten.</p>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
-        <div class="service-title">Retail & Hospitality</div>
+        <h3 class="service-title">Retail & Hospitality</h3>
         <p class="service-desc">Stores, Restaurants und Hotels, die eine Geschichte erzählen. Vom Konzept bis zur Eröffnung.</p>
       </div>
     </div>
@@ -947,22 +1051,22 @@
     <div class="process-steps">
       <div class="process-step reveal">
         <div class="step-num">01 — Kennenlernen</div>
-        <div class="step-title">Zuhören</div>
+        <h3 class="step-title">Zuhören</h3>
         <p class="step-desc">Ein offenes Gespräch über deine Räume, Gewohnheiten und Ziele. Was funktioniert nicht? Was soll sich verändern?</p>
       </div>
       <div class="process-step reveal">
         <div class="step-num">02 — Strategie</div>
-        <div class="step-title">Konzept</div>
+        <h3 class="step-title">Konzept</h3>
         <p class="step-desc">Raumkonzept mit Grundriss, Moodboard und Materialauswahl. Klar und budgetorientiert – ohne Überraschungen.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-num">03 — Design</div>
-        <div class="step-title">Planung</div>
+        <h3 class="step-title">Planung</h3>
         <p class="step-desc">Detaillierte Planung mit realistischen Visualisierungen. Du siehst das Ergebnis, bevor es entsteht.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-num">04 — Delivery</div>
-        <div class="step-title">Umsetzung</div>
+        <h3 class="step-title">Umsetzung</h3>
         <p class="step-desc">Ich koordiniere alle Gewerke und begleite die Umsetzung – bis alles sitzt und du begeistert bist.</p>
       </div>
     </div>
@@ -980,39 +1084,42 @@
           <div><div class="cdl">LinkedIn</div><div class="cdv">linkedin.com/in/ulli-zelle</div></div>
         </div>
       </div>
-      <form class="contact-form reveal" onsubmit="return false;">
+      <form class="contact-form reveal" id="contact-form" novalidate>
         <div class="form-row">
-          <label class="form-label">Name</label>
-          <input type="text" class="form-input" placeholder="Dein Name">
+          <label class="form-label" for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" class="form-input" placeholder="Dein Name" required aria-required="true">
         </div>
         <div class="form-row">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="deine@email.de">
+          <label class="form-label" for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" class="form-input" placeholder="deine@email.de" required aria-required="true">
         </div>
         <div class="form-row">
-          <label class="form-label">Projekttyp</label>
-          <input type="text" class="form-input" placeholder="Wohnung / Büro / Retail / ...">
+          <label class="form-label" for="contact-type">Projekttyp</label>
+          <input type="text" id="contact-type" name="projekttyp" class="form-input" placeholder="Wohnung / Büro / Retail / ...">
         </div>
         <div class="form-row">
-          <label class="form-label">Nachricht</label>
-          <textarea class="form-textarea" placeholder="Erzähl mir kurz von deinem Projekt..."></textarea>
+          <label class="form-label" for="contact-message">Nachricht</label>
+          <textarea id="contact-message" name="nachricht" class="form-textarea" placeholder="Erzähl mir kurz von deinem Projekt..." required aria-required="true"></textarea>
         </div>
-        <button type="submit" class="form-submit">Absenden →</button>
+        <button type="submit" class="form-submit" id="contact-submit" aria-label="Kontaktformular absenden">Absenden →</button>
+        <div class="form-msg" id="form-msg" role="alert" aria-live="polite"></div>
       </form>
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <img src="images/uz_logo_transparent.png" alt="UZ">
+      <img src="images/uz_logo_transparent.svg" alt="UZ Logo" width="26" height="26">
       <span>Ulli Zelle</span>
     </div>
     <ul class="footer-links">
-      <li><a href="#">Impressum</a></li>
-      <li><a href="#">Datenschutz</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+      <li><a href="datenschutz.html">Datenschutz</a></li>
     </ul>
-    <span class="footer-copy">© 2026 Ulrike Zelle</span>
+    <span class="footer-copy">&copy; 2026 Ulrike Zelle</span>
   </footer>
 
   <!-- LIGHTBOX -->
@@ -1022,12 +1129,12 @@
         <div class="lb-title" id="lb-title"></div>
         <div class="lb-meta" id="lb-meta"></div>
       </div>
-      <button class="lb-close" onclick="closeLightbox()">✕</button>
+      <button class="lb-close" onclick="closeLightbox()" aria-label="Lightbox schließen">✕</button>
     </div>
     <div class="lb-stage">
-      <button class="lb-nav lb-prev" onclick="lbNav(-1)">←</button>
-      <img class="lb-img" id="lb-img" src="" alt="">
-      <button class="lb-nav lb-next" onclick="lbNav(1)">→</button>
+      <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Vorheriges Bild">←</button>
+      <img class="lb-img" id="lb-img" src="" alt="Projektbild">
+      <button class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Nächstes Bild">→</button>
     </div>
     <div class="lb-thumbs" id="lb-thumbs"></div>
   </div>
@@ -1122,6 +1229,99 @@
       });
     }, {threshold: 0.08});
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ── CONTACT FORM ── */
+    (function() {
+      // ============================================================
+      // WEBHOOK URL KONFIGURATION
+      // Ersetze diese URL mit dem echten n8n Webhook-Endpoint:
+      // z.B. 'https://agents.umzwei.de/webhook/contact-form'
+      // ============================================================
+      var WEBHOOK_URL = 'https://agents.umzwei.de/webhook/ullizelle-contact';
+
+      var form = document.getElementById('contact-form');
+      var submitBtn = document.getElementById('contact-submit');
+      var msgEl = document.getElementById('form-msg');
+
+      function showMsg(text, type) {
+        msgEl.textContent = text;
+        msgEl.className = 'form-msg ' + type;
+      }
+
+      function clearMsg() {
+        msgEl.textContent = '';
+        msgEl.className = 'form-msg';
+      }
+
+      function validateEmail(email) {
+        return email.indexOf('@') > 0 && email.indexOf('.') > email.indexOf('@');
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearMsg();
+
+        // Alle invalid-Markierungen entfernen
+        form.querySelectorAll('.invalid').forEach(function(el) {
+          el.classList.remove('invalid');
+        });
+
+        var name = document.getElementById('contact-name');
+        var email = document.getElementById('contact-email');
+        var message = document.getElementById('contact-message');
+
+        var errors = [];
+        if (!name.value.trim()) {
+          name.classList.add('invalid');
+          errors.push('Name');
+        }
+        if (!email.value.trim() || !validateEmail(email.value.trim())) {
+          email.classList.add('invalid');
+          errors.push('E-Mail');
+        }
+        if (!message.value.trim()) {
+          message.classList.add('invalid');
+          errors.push('Nachricht');
+        }
+
+        if (errors.length > 0) {
+          showMsg('Bitte fülle folgende Felder korrekt aus: ' + errors.join(', '), 'error');
+          return;
+        }
+
+        // Absenden
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet...';
+
+        var data = {
+          name: name.value.trim(),
+          email: email.value.trim(),
+          projekttyp: document.getElementById('contact-type').value.trim(),
+          nachricht: message.value.trim()
+        };
+
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(function(response) {
+          if (response.ok) {
+            showMsg('Vielen Dank! Deine Nachricht wurde gesendet. Ich melde mich in Kürze.', 'success');
+            form.reset();
+          } else {
+            throw new Error('Server-Fehler');
+          }
+        })
+        .catch(function() {
+          showMsg('Leider konnte die Nachricht nicht gesendet werden. Bitte versuche es später erneut oder schreibe direkt an hello@ullizelle.de.', 'error');
+        })
+        .finally(function() {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Absenden \u2192';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
