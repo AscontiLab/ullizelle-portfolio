@@ -1,0 +1,489 @@
+**Räuber & Töchter**
+
+Gemeinsamer Projektplan --- Maik & Ulli
+
+*März 2026 · 6 Projekte · \~12 Wochen*
+
+Überblick
+
+Sechs Projekte an der Schnittstelle von Ullis Interior-Design-Expertise
+und Maiks Tech-Stack. Ziel: Mehr Sichtbarkeit für Ulli, passives
+Einkommen für Räuber & Töchter UG, und eine gemeinsame digitale Präsenz
+die beide weiterbringt.
+
+  ---------------------------------------------------------------------------------
+  **\#**   **Projekt**           **Ziel**                        **Zeitraum**
+  -------- --------------------- ------------------------------- ------------------
+  1        Portfolio-Website +   Aktive Lead-Generierung für     Woche 1--2
+           Stil-Finder           Ulli                            
+
+  2        Automatisiertes       Weniger Bürokratie, schnellere  Woche 2--3
+           Angebotssystem        Reaktion                        
+
+  3        Fiverr: Interior      Validierung + erste Einnahmen   Woche 1--2
+           Concept in 48h                                        
+
+  4        Content-Maschine      Sichtbarkeit ohne täglichen     Woche 3--4
+           Instagram/Pinterest   Aufwand                         
+
+  5        Digitale              Passives Einkommen via          Woche 5--8
+           Raumkonzept-Pakete    Etsy/Gumroad                    
+
+  6        Räuber & Töchter als  Langfristige Marke + Etsy-Shop  Woche 8--12
+           Design-Brand                                          
+  ---------------------------------------------------------------------------------
+
+Zeitplan
+
+  --------- ------------------------------------------- ------------------
+  **Phase   **Schnelle Wins --- Fiverr + Website        Woche 1--2
+  1**       Grundstruktur**                             
+
+  --------- ------------------------------------------- ------------------
+
+  --------- ------------------------------------------- ------------------
+  **Phase   **Automatisierung --- Angebotssystem +      Woche 3--4
+  2**       Content-Maschine**                          
+
+  --------- ------------------------------------------- ------------------
+
+  --------- ------------------------------------------- ------------------
+  **Phase   **Passive Produkte --- Digitale Pakete      Woche 5--8
+  3**       erstellen**                                 
+
+  --------- ------------------------------------------- ------------------
+
+  --------- ------------------------------------------- ------------------
+  **Phase   **Marke aufbauen --- Räuber & Töchter       Woche 8--12
+  4**       Brand + Etsy**                              
+
+  --------- ------------------------------------------- ------------------
+
+Projekt 1 --- Portfolio-Website + Stil-Finder
+
+Eine smarte Portfolio-Website die Besucher durch 5 Stil-Fragen führt,
+eine personalisierte Mood-Board-Empfehlung ausgibt (Claude im
+Hintergrund) und dabei die E-Mail-Adresse erfasst. Kein statisches
+Portfolio mehr --- eine aktive Leadmaschine.
+
+**Was wird gebraucht**
+
+-   Domain (z.B. ulli-strube.de oder rauber-toechter.de)
+
+-   Hosting --- Hetzner Server bereits vorhanden
+
+-   Ullis Portfolio-Fotos (10--20 Projekte mit kurzen Beschreibungen)
+
+-   Stil-Fragen definieren: 5 Fragen zu Farbwelt, Raumgröße, Wohnstil,
+    Budget, Priorität
+
+-   E-Mail-Service (Mailchimp kostenlos bis 500 Kontakte)
+
+**To-Do-Liste**
+
+  -------------------------------------------------------------------------
+  **To-Do**                 **Details**                 **Wer / Tool**
+  ------------------------- --------------------------- -------------------
+  Domain registrieren       ulli-strube.de oder         Maik ·
+                            rauberundtoechter.de prüfen Namecheap/Hetzner
+                            & kaufen                    
+
+  Stil-Fragen definieren    5 Fragen mit je 3-4         Ulli (Inhalt) +
+                            Antwortoptionen + Mapping   Maik (Logik)
+                            zu Stiltypen                
+
+  Website bauen             React/Next.js, Stil-Finder  Maik · Claude Code
+                            UI, Ergebnis-Seite mit      
+                            Mood-Board                  
+
+  Claude API einbinden      Stil-Finder Antworten →     Maik · Anthropic
+                            personalisierter Text +     API
+                            Produktempfehlung           
+
+  Portfolio einspielen      Fotos optimieren,           Ulli
+                            Projektbeschreibungen       
+                            schreiben                   
+
+  E-Mail-Integration        Mailchimp Formular nach     Maik · n8n
+                            Stil-Ergebnis, Welcome-Mail 
+                            automatisch                 
+
+  SEO Grundstruktur         Meta-Tags, Google Search    Maik
+                            Console, Sitemap            
+
+  Live schalten + testen    Mobile-Check, Speed-Test,   Beide
+                            Stil-Finder Durchlauf       
+                            testen                      
+  -------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+10+ Stil-Finder Durchläufe in Woche 1 nach Launch → mindestens 3
+qualifizierte Anfragen im ersten Monat.
+
+Projekt 2 --- Automatisiertes Angebotssystem
+
+Eingehende Anfragen (Website-Formular, E-Mail, Houzz) werden automatisch
+zu einem strukturierten Briefing-PDF verarbeitet das Ulli direkt als
+Basis für ihr Angebot nutzen kann. Von Anfrage bis Erstantwort unter 2
+Stunden.
+
+**Was wird gebraucht**
+
+-   n8n Workflow (bereits auf Hetzner vorhanden)
+
+-   Briefing-Formular auf der Website (Projektart, Raumgröße, Budget,
+    Zeitraum, Stil)
+
+-   Angebots-Template in Word (einmalig erstellen)
+
+-   E-Mail-Zugang für automatischen Versand
+
+**To-Do-Liste**
+
+  ------------------------------------------------------------------------
+  **To-Do**                 **Details**                 **Wer / Tool**
+  ------------------------- --------------------------- ------------------
+  Briefing-Formular         10 Felder: Kontakt,         Ulli (Inhalt)
+  definieren                Projekttyp, Raum, m²,       
+                            Budget, Zeitraum, Stil,     
+                            Fotos                       
+
+  Formular einbauen         Website-Integration, Daten  Maik · Claude Code
+                            per Webhook an n8n          
+
+  n8n Workflow bauen        Webhook → Claude API → PDF  Maik · n8n
+                            generieren → E-Mail an      
+                            Ulli + Bestätigung an Kunde 
+
+  Angebots-Template         Word-Vorlage mit            Ulli (Design) +
+                            Platzhaltern für            Maik (Tech)
+                            automatische Befüllung      
+
+  Automatische              Professionelle              Ulli (Text)
+  Bestätigungs-Mail         Eingangsbestätigung mit     
+                            Zeitrahmen für Antwort      
+
+  CRM-light in Notion       Eingehende Anfragen         Maik · n8n
+                            automatisch als             
+                            Notion-Einträge anlegen     
+
+  Testen + optimieren       5 Test-Anfragen             Beide
+                            durchschicken, Timings und  
+                            Output prüfen               
+  ------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+Ulli verbringt \< 30 Minuten pro Neukunden-Anfrage statt bisher 2-3
+Stunden.
+
+Projekt 3 --- Fiverr: Interior Concept in 48h
+
+Ein klar definiertes Fiverr-Paket: Ulli liefert das kreative Konzept,
+Maik baut das Präsentationsdeck automatisiert. Ziel ist primär
+Validierung --- welche Raumtypen/Stile werden am häufigsten gebucht.
+Daraus entstehen später die digitalen Produkte.
+
+**Was wird gebraucht**
+
+-   Fiverr-Account (unter Räuber & Töchter oder Ullis Namen)
+
+-   Deck-Template (PowerPoint/Canva) für Konzeptpräsentation
+
+-   5-10 Portfolio-Bilder als Referenz für das Fiverr-Profil
+
+-   Klare Paket-Definition: was ist drin, was kostet was
+
+**Paket-Struktur**
+
+  ------------------------------------------------------------------------
+  **Paket**       **Inhalt**                  **Preis**   **Lieferzeit**
+  --------------- --------------------------- ----------- ----------------
+  Basic           Moodboard + 3               €79         48h
+                  Farbpaletten +                          
+                  Möbel-Moodboard                         
+
+  Standard        Basic + Raumplan (2D) + 5   €149        72h
+                  konkrete Produktlinks                   
+
+  Premium         Standard + Videocall        €249        5 Tage
+                  30min + 2 Revisionen                    
+  ------------------------------------------------------------------------
+
+**To-Do-Liste**
+
+  --------------------------------------------------------------------------------
+  **To-Do**                 **Details**                         **Wer / Tool**
+  ------------------------- ----------------------------------- ------------------
+  Deck-Template bauen       Professionelles                     Maik · Claude Code
+                            PowerPoint-Template: Cover,         
+                            Moodboard, Farbpalette, Möbel, Next 
+                            Steps                               
+
+  Fiverr-Profil aufsetzen   Bio, Portfolio-Fotos,               Ulli + Maik
+                            Paket-Beschreibungen, Preise        
+                            eintragen                           
+
+  Automatisierungs-Skript   Briefing-Input → Template befüllen  Maik ·
+                            → fertiges PDF in 10min             Python/Claude
+
+  Malt-Profil parallel      Deutsches Pendant zu Fiverr, höhere Ulli
+                            Preise durchsetzbar                 
+
+  Houzz-Profil anlegen      Spezialisiert auf Interior,         Ulli
+                            direkter Zugang zu Privatkunden     
+
+  Erste 3 Gigs bewerben     In                                  Beide
+                            Interior-Design-Facebook-Gruppen,   
+                            LinkedIn posten                     
+  --------------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+5 abgeschlossene Aufträge in den ersten 4 Wochen. Daten auswerten:
+welche Raumtypen dominieren → wird zum digitalen Produkt.
+
+Projekt 4 --- Content-Maschine Instagram/Pinterest
+
+Ein n8n-Workflow der wöchentlich aus Ullis Projektfotos und kurzen
+Notizen automatisch Captions, Hashtag-Sets und einen Posting-Plan
+generiert. Ulli fotografiert und gibt 2-3 Stichworte --- der Rest
+passiert automatisch.
+
+**Was wird gebraucht**
+
+-   Instagram Business-Account (falls noch nicht vorhanden)
+
+-   Pinterest Business-Account
+
+-   Projektfotos (bereits vorhanden aus laufenden Projekten)
+
+-   n8n + Claude API (bereits vorhanden)
+
+**To-Do-Liste**
+
+  ------------------------------------------------------------------------
+  **To-Do**                 **Details**                 **Wer / Tool**
+  ------------------------- --------------------------- ------------------
+  Content-Strategie         3 Content-Typen:            Ulli
+  definieren                Vorher/Nachher,             
+                            Detail-Shot,                
+                            Prozess-Behind-the-Scenes   
+
+  n8n Workflow bauen        Foto-Upload → Claude API →  Maik · n8n
+                            Caption + 15 Hashtags +     
+                            Alt-Text generieren         
+
+  Posting-Kalender          Mo/Mi/Fr Instagram +        Maik · n8n
+                            täglich Pinterest           
+                            (unterschiedliche Formate)  
+
+  Instagram Business        Business-Account, Bio       Ulli + Maik
+  einrichten                optimieren, Link-in-Bio mit 
+                            Linktree                    
+
+  Pinterest SEO             10 Boards anlegen mit       Ulli
+                            keywordreichen Titeln (z.B. 
+                            \'Berliner Wohnzimmer       
+                            skandinavisch\')            
+
+  Buffer/Later angebunden   Scheduling-Tool damit Posts Maik · n8n
+                            zur Primetime rausgehen     
+
+  Erste 4 Wochen Content    16 Posts vorbereiten und    Beide
+                            vorplanen zum Start         
+  ------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+Ulli investiert \< 1h pro Woche in Social Media. 500 Instagram-Follower
+und 1.000 Pinterest-Impressionen/Monat nach 8 Wochen.
+
+Projekt 5 --- Digitale Raumkonzept-Pakete
+
+Aus den häufigsten Fiverr-Aufträgen entstehen fertige digitale Produkte
+die ohne Ullis Zeit-Einsatz verkauft werden. Vollständiges PDF-Paket:
+Moodboard, Farbpalette, Möbelliste mit Links, Händlerempfehlungen.
+
+**Geplante Produkte (initial)**
+
+  -------------------------------------------------------------------------------
+  **Produkt**            **Inhalt**                  **Preis**   **Plattform**
+  ---------------------- --------------------------- ----------- ----------------
+  Wohnzimmer             Moodboard, 5 Farbpaletten,  €39         Etsy + Gumroad
+  Skandinavisch          20 Produktlinks,                        
+                         Händlerliste                            
+
+  Homeoffice Modern      Ergonomie-Tipps, Möbel,     €29         Etsy + Gumroad
+                         Licht-Setup, Farbkonzept                
+
+  Berliner Altbau        Typische                    €49         Etsy + Gumroad
+  Makeover               Altbau-Herausforderungen,               
+                         Lösungen, Produktliste                  
+
+  Büro/Praxis Gewerblich Repräsentatives Ambiente,   €79         Direkt/Gumroad
+                         Akustik, Pflanzenkonzept                
+  -------------------------------------------------------------------------------
+
+**To-Do-Liste**
+
+  ------------------------------------------------------------------------
+  **To-Do**                 **Details**                 **Wer / Tool**
+  ------------------------- --------------------------- ------------------
+  Etsy-Shop eröffnen        Räuber & Töchter Shop       Maik (Tech) + Ulli
+                            anlegen, Branding, Policies (Branding)
+
+  Gumroad-Account           Parallel zu Etsy, für       Maik
+                            direkte Käufe ohne          
+                            Provision                   
+
+  Erstes Produkt erstellen  Wohnzimmer Skandinavisch    Beide · Claude
+                            --- Ulli erstellt Inhalt,   Code
+                            Maik baut PDF-Vorlage       
+
+  PDF-Generator bauen       Template-System: Ulli füllt Maik · Claude Code
+                            Formular → fertiges         
+                            Verkaufs-PDF entsteht       
+                            automatisch                 
+
+  Produktfotos/Mockups      Canva Mockups für           Ulli
+                            Etsy-Listings (Laptop,      
+                            gedrucktes PDF)             
+
+  SEO für Etsy-Listings     Keyword-Recherche für jeden Maik · Claude
+                            Produkttitel und Tags       
+
+  Launch-Strategie          Pinterest Pins + Instagram  Beide
+                            Post für jedes neue Produkt 
+  ------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+€300/Monat passives Einkommen nach 3 Monaten live. 4 Produkte online in
+Woche 8.
+
+Projekt 6 --- Räuber & Töchter als Design-Brand
+
+Der Firmenname klingt nach Berliner Kreativboutique --- das ist ein
+Asset. Langfristig eine erkennbare Marke für Interior-Design-Produkte
+aufbauen: Canva-Templates, DIY-Renovierungs-Guides, Farbpaletten-Guides,
+und Coaching-Produkte für Design-Interessierte.
+
+**Was wird gebraucht**
+
+-   Brand-Identität: Logo, Farbwelt, Typografie (Ulli macht das in ihrem
+    Schlaf)
+
+-   Eigene Website unter rauberundtoechter.de (aus Projekt 1
+    weiterentwickeln)
+
+-   Content-Strategie für organisches Wachstum
+
+-   E-Mail-Liste (aufgebaut durch Stil-Finder aus Projekt 1)
+
+**To-Do-Liste**
+
+  ------------------------------------------------------------------------
+  **To-Do**                 **Details**                 **Wer / Tool**
+  ------------------------- --------------------------- ------------------
+  Brand-Design              Logo, Farben, Fonts,        Ulli
+                            Bildsprache für Räuber &    
+                            Töchter                     
+
+  Brand-Guidelines          1-seitiges Dokument für     Ulli
+                            konsistente Nutzung aller   
+                            Assets                      
+
+  Website erweitern         Shop-Integration, Blog für  Maik · Claude Code
+                            SEO, Newsletter-Anmeldung   
+
+  Canva-Templates           5 Interior-Stile als        Ulli
+  entwickeln                Canva-Templates (Moodboard, 
+                            Raumplan, Farbschema)       
+
+  Newsletter aufsetzen      Beehiiv oder Mailchimp,     Maik (Tech) + Ulli
+                            monatliche                  (Inhalt)
+                            Design-Inspiration          
+
+  SEO-Strategie             10 Blogartikel zu           Maik · Claude
+                            Interior-Themen mit hohem   
+                            Suchvolumen                 
+
+  LinkedIn-Präsenz          Ulli postet über            Beide
+                            Gewerbeprojekte, Maik über  
+                            AI+Design-Automatisierung   
+
+  Jahresplan Content        Contentkalender für Q2-Q4   Beide
+                            2026 anlegen                
+  ------------------------------------------------------------------------
+
+**Erfolgskriterium**
+
+Räuber & Töchter ist in 6 Monaten eine erkennbare Marke im Berliner
+Interior-Segment mit aktiver E-Mail-Liste (500+ Abonnenten) und
+monatlichem passivem Einkommen von €500+.
+
+Ressourcen & Kosten
+
+  --------------------------------------------------------------------------------
+  **Tool/Service**       **Zweck**                 **Kosten**        **Notiz**
+  ---------------------- ------------------------- ----------------- -------------
+  Domain                 Website                   \~€12/Jahr        Namecheap
+
+  Hetzner Server         n8n, Website-Hosting      bereits vorhanden ---
+
+  Anthropic API          Stil-Finder, Content-Gen  \~€20-40/Mo       pay per use
+
+  Mailchimp/Beehiiv      Newsletter                kostenlos bis 500 upgraden wenn
+                                                                     nötig
+
+  Etsy-Shop              Digitale Produkte         €0,20/Listing +   keine
+                                                   6,5%              Grundgebühr
+
+  Gumroad                Digitale Produkte direkt  10% unter         parallel zu
+                                                   \$10k/Jahr        Etsy
+
+  Canva Pro              Templates, Mockups        €13/Mo            Ulli hat
+                                                                     evtl. schon
+
+  Buffer/Later           Social-Media-Scheduling   kostenlos (3      
+                                                   Kanäle)           
+
+  Fiverr/Malt            Freelance-Aufträge        20% / 10%         keine
+                                                   Provision         Fixkosten
+  --------------------------------------------------------------------------------
+
+*Gesamte Startkosten: ca. €50-80 einmalig + €50-60/Monat laufend
+(hauptsächlich API-Kosten). Break-even bereits bei 2-3 verkauften
+digitalen Paketen pro Monat.*
+
+Nächste Schritte --- Diese Woche
+
+  -----------------------------------------------------------------------
+      **Aufgabe**                         **Wer**         **Bis wann**
+  --- ----------------------------------- --------------- ---------------
+  1   Gemeinsames Kickoff-Gespräch: alle  Beide           Diese Woche
+      6 Projekte durchgehen, Prioritäten                  
+      setzen                                              
+
+  2   Domain registrieren                 Maik            Tag 1
+      (rauberundtoechter.de prüfen)                       
+
+  3   Fiverr + Malt + Houzz Profile       Ulli + Maik     Tag 1-2
+      anlegen                                             
+
+  4   Deck-Template für Fiverr-Pakete     Maik            Tag 2-3
+      bauen (Claude Code)                                 
+
+  5   10 Portfolio-Fotos auswählen und    Ulli            Tag 2-3
+      optimieren                                          
+
+  6   Stil-Fragen für Website-Finder      Ulli            Tag 3-4
+      definieren (5 Fragen, 4 Optionen)                   
+
+  7   Website-Grundstruktur aufsetzen     Maik · Claude   Tag 4-7
+                                          Code            
+  -----------------------------------------------------------------------
+
+*Räuber & Töchter UG · Berlin 2026*

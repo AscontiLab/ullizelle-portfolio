@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulli Zelle — Interior & Product Design Berlin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #F2EDE5;
+      --bg2:     #EBE5DB;
+      --bg3:     #E3DDD3;
+      --border:  #D4CCC0;
+      --mid:     #9A9088;
+      --text:    #1E1A17;
+      --text2:   #5A5248;
+      --accent:  #7D5C3E;
+      --accent2: #B8844A;
+      --neon:    #FF5C35;
+      --ink:     #1E1A17;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(242,237,229,0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      width: 34px; height: 34px;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .nav-logo-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--text);
+    }
+    .nav-logo-sub {
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text2);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--ink) !important;
+      color: var(--bg) !important;
+      padding: 0.55rem 1.3rem !important;
+    }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      padding-top: 5rem;
+      align-items: stretch;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 4rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--neon);
+      margin-bottom: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+    .hero-eyebrow::before {
+      content:'';
+      width: 2rem; height: 1px;
+      background: var(--accent2);
+    }
+
+    .hero-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+    }
+    .hero-title .line { display: block; overflow: hidden; }
+    .hero-title .line span {
+      display: block;
+      opacity: 0;
+      transform: translateY(105%);
+      animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero-title .line:nth-child(1) span { animation-delay: 0.25s; }
+    .hero-title .line:nth-child(2) span { animation-delay: 0.4s; }
+    .hero-title .line:nth-child(3) span { animation-delay: 0.55s; }
+    .hero-title em { font-style: italic; color: var(--accent2); }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text2);
+      max-width: 380px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.65s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: var(--ink);
+      color: var(--bg);
+      text-decoration: none;
+      padding: 0.85rem 1.7rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.25s, gap 0.25s;
+    }
+    .btn-primary:hover { background: var(--accent); gap: 1.2rem; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text2);
+      text-decoration: none;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s, gap 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--accent); gap: 1rem; border-color: var(--accent); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg2);
+      opacity: 0;
+      animation: fadeIn 1s ease 0.3s forwards;
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 65% 30%;
+      display: block;
+      filter: saturate(0.9) brightness(0.97);
+      transform: scale(1.18);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 1.4rem 2rem;
+      display: flex;
+      gap: 2.5rem;
+    }
+    .hb-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      color: var(--accent2);
+    }
+    .hb-lbl {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 0.25rem;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 0.85rem 0;
+      background: var(--bg2);
+    }
+    .marquee {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      flex-shrink: 0;
+    }
+    .marquee-dot {
+      width: 3px; height: 3px;
+      background: var(--accent2);
+      border-radius: 50%;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 7rem 4rem; }
+    .section-eyebrow {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .section-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .section-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    /* ── ABOUT ── */
+    .about { border-top: 1px solid var(--border); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      margin-top: 4.5rem;
+      align-items: start;
+    }
+    .about-imgs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .about-img-main {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      display: block;
+    }
+    .about-img-portrait {
+      grid-column: 2;
+      grid-row: 1;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .about-badge {
+      grid-column: 2;
+      grid-row: 2;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .about-badge-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 2.5rem;
+      line-height: 1;
+      color: var(--bg);
+    }
+    .about-badge-lbl {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-top: 0.4rem;
+    }
+    .about-text { color: var(--text2); line-height: 1.9; margin-bottom: 1.4rem; font-size: 0.95rem; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .stat {
+      padding: 1.5rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 2rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-lbl {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+    }
+
+    /* ── PROJECTS ── */
+    .projects { border-top: 1px solid var(--border); background: var(--bg2); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+    .project-card {
+      background: var(--bg);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .project-card:nth-child(1) { grid-column: span 7; }
+    .project-card:nth-child(2) { grid-column: span 5; }
+    .project-card:nth-child(3) { grid-column: span 5; }
+    .project-card:nth-child(4) { grid-column: span 7; }
+
+    .proj-inner {
+      aspect-ratio: 4/3;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:nth-child(1) .proj-inner,
+    .project-card:nth-child(4) .proj-inner { aspect-ratio: 16/9; }
+
+    .proj-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s;
+      filter: brightness(0.93) saturate(0.85);
+    }
+    .project-card:hover .proj-inner img {
+      transform: scale(1.05);
+      filter: brightness(0.65) saturate(1.0);
+    }
+    .proj-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(30,26,23,0.8) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+    }
+    .project-card:hover .proj-overlay { opacity: 1; }
+    .proj-cta {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+    }
+    .proj-info {
+      padding: 1.2rem 1.4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg);
+    }
+    .proj-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .proj-type {
+      font-size: 0.65rem;
+      color: var(--mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .proj-arrow {
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--mid);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .project-card:hover .proj-arrow {
+      background: var(--accent); color: var(--bg); border-color: var(--accent);
+    }
+
+    /* ── SERVICES ── */
+    .services { border-top: 1px solid var(--border); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+    .service-card {
+      background: var(--bg);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent2);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+    .service-card:hover { background: var(--bg2); }
+    .service-num {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--neon);
+      margin-bottom: 1.8rem;
+    }
+    .service-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.8rem;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .service-desc { font-size: 0.85rem; color: var(--text2); line-height: 1.85; }
+
+    /* ── PROCESS ── */
+    .process { border-top: 1px solid var(--border); background: var(--bg2); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+    .process-step {
+      padding-top: 1.5rem;
+      border-top: 2px solid var(--border);
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .process-step:hover { border-color: var(--accent); }
+    .step-num {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--neon);
+      margin-bottom: 1.2rem;
+    }
+    .step-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.6rem;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+    .step-desc { font-size: 0.83rem; color: var(--text2); line-height: 1.85; }
+
+    /* ── CONTACT ── */
+    .contact { border-top: 1px solid var(--border); background: var(--bg3); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+    .contact-title em { font-style: italic; color: var(--accent2); }
+    .contact-details { display: flex; flex-direction: column; gap: 1.8rem; }
+    .cdl {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    .cdv { color: var(--text2); font-size: 0.92rem; }
+    .contact-form { display: flex; flex-direction: column; }
+    .form-row { border-bottom: 1px solid var(--border); padding: 1.3rem 0; }
+    .form-label {
+      display: block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.4rem;
+    }
+    .form-input, .form-textarea {
+      background: transparent; border: none; width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem; color: var(--text); outline: none;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--border); }
+    .form-textarea { resize: none; height: 80px; }
+    .form-submit {
+      margin-top: 2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      padding: 0.95rem 2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s, gap 0.25s;
+      align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--accent); gap: 1.4rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg2);
+    }
+    .footer-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .footer-logo img {
+      width: 26px; height: 26px;
+      object-fit: contain;
+      opacity: 0.85;
+    }
+    .footer-logo span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .footer-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox-overlay {
+      position: fixed; inset: 0;
+      background: rgba(30,26,23,0.97);
+      z-index: 1000;
+      display: flex; flex-direction: column;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .lightbox-overlay.active { opacity: 1; pointer-events: all; }
+    .lightbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      flex-shrink: 0;
+    }
+    .lb-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.1rem;
+      color: var(--bg);
+    }
+    .lb-meta { font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
+    .lb-close {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.6);
+      width: 40px; height: 40px;
+      cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-close:hover { background: var(--accent2); color: white; border-color: transparent; }
+    .lb-stage {
+      flex: 1; display: flex;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden; min-height: 0;
+    }
+    .lb-img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain;
+      opacity: 0; transform: scale(0.97);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .lb-img.loaded { opacity: 1; transform: scale(1); }
+    .lb-nav {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(30,26,23,0.6);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      width: 48px; height: 48px;
+      cursor: pointer; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-nav:hover { background: var(--accent); border-color: transparent; color: white; }
+    .lb-prev { left: 2rem; }
+    .lb-next { right: 2rem; }
+    .lb-thumbs {
+      display: flex; gap: 0.4rem;
+      justify-content: center;
+      padding: 1.2rem 1.5rem 1.8rem;
+      flex-shrink: 0;
+    }
+    .lb-thumb {
+      width: 64px; height: 44px;
+      object-fit: cover; cursor: pointer;
+      opacity: 0.3; border: 2px solid transparent;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+    .lb-thumb.active { opacity: 1; border-color: var(--accent2); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(105%); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 6rem 1.5rem 3rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-right { height: 60vw; }
+      .section { padding: 4rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card:nth-child(n) { grid-column: span 12; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <img src="images/uz_logo_transparent.png" alt="UZ">
+      <div class="nav-logo-text">
+        <span class="nav-logo-name">Ulli Zelle</span>
+        <span class="nav-logo-sub">Interior Design & Workplace Consulting · Berlin</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#prozess">Prozess</a></li>
+      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Interior Design & Workplace Consulting · Berlin</p>
+      <h1 class="hero-title">
+        <span class="line"><span>Räume,</span></span>
+        <span class="line"><span>die <em style="color:var(--neon)">wirken.</em></span></span>
+      </h1>
+      <p class="hero-desc">
+        Wohn- und Gewerberäume, die funktionieren, inspirieren und bleiben.
+        Für Privatpersonen und Unternehmen in Berlin und bundesweit.
+      </p>
+      <div class="hero-actions">
+        <a href="#projekte" class="btn-primary">Projekte ansehen →</a>
+        <a href="#kontakt" class="btn-ghost">Beratungsgespräch →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/ikea_01_simplicity_frontal.jpg" alt="Interior Design Berlin">
+
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <div class="marquee-item">Interior Design <span class="marquee-dot"></span> Product Design <span class="marquee-dot"></span> Workplace <span class="marquee-dot"></span> Retail <span class="marquee-dot"></span> Residential <span class="marquee-dot"></span> Berlin <span class="marquee-dot"></span> Interior Design <span class="marquee-dot"></span> Product Design <span class="marquee-dot"></span> Workplace <span class="marquee-dot"></span> Retail <span class="marquee-dot"></span> Residential <span class="marquee-dot"></span> Berlin <span class="marquee-dot"></span></div>
+      <div class="marquee-item">Interior Design <span class="marquee-dot"></span> Product Design <span class="marquee-dot"></span> Workplace <span class="marquee-dot"></span> Retail <span class="marquee-dot"></span> Residential <span class="marquee-dot"></span> Berlin <span class="marquee-dot"></span> Interior Design <span class="marquee-dot"></span> Product Design <span class="marquee-dot"></span> Workplace <span class="marquee-dot"></span> Retail <span class="marquee-dot"></span> Residential <span class="marquee-dot"></span> Berlin <span class="marquee-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <p class="section-eyebrow reveal">Studio</p>
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <img src="images/WhatsApp_Image_2026-03-10_at_19_33_46.jpeg" alt="Ulli Zelle">
+      </div>
+      <div>
+        <h2 class="section-title reveal" style="margin-bottom:2rem;">Über<br>mich</h2>
+        <p class="about-text reveal">
+          Ich bin Ulli – Interior und Product Designerin aus Berlin. Meine Arbeit beginnt nicht mit Moodboards, sondern mit echten Fragen: Wie lebst du? Wie arbeitest du? Was nervt dich an deinem Raum?
+        </p>
+        <p class="about-text reveal">
+          Aus den Antworten entstehen Räume, die funktionieren. Das Schöne folgt dann von selbst. Ich arbeite mit Privatpersonen genauso wie mit Unternehmen – von der Wohnung bis zum Flagship Store.
+        </p>
+        <div class="about-stats reveal">
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-lbl">Projekte</div></div>
+          <div class="stat"><div class="stat-num">15</div><div class="stat-lbl">Jahre</div></div>
+          <div class="stat"><div class="stat-num">DE</div><div class="stat-lbl">& Remote</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects section" id="projekte">
+    <p class="section-eyebrow reveal">Ausgewählte Arbeiten</p>
+    <h2 class="section-title reveal">Projekte</h2>
+    <div class="projects-grid reveal">
+
+      <div class="project-card" onclick="openLightbox('kpm')">
+        <div class="proj-inner">
+          <img src="images/kpm_02_lounge_blau.jpg" alt="KPM">
+          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">KPM Königliche Porzellan-Manufaktur</div>
+            <div class="proj-type">Retail · Berlin · Flagship Store</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openLightbox('amberra')">
+        <div class="proj-inner">
+          <img src="images/amberra_01_halle_gewoelbe.jpg" alt="Amberra">
+          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">Amberra HQ Berlin</div>
+            <div class="proj-type">Workplace · Berlin · Gewölbegebäude</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openLightbox('ikea')">
+        <div class="proj-inner">
+          <img src="images/ikea_01_simplicity_frontal.jpg" alt="Ikea Office">
+          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">Ikea Office Berlin Spandau</div>
+            <div class="proj-type">Workplace · Berlin · Konferenzbereich</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="project-card" onclick="openLightbox('kpm')">
+        <div class="proj-inner">
+          <img src="images/kpm_01_lab_kueche.jpg" alt="KPM Lab">
+          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">KPM Lab & Kitchen</div>
+            <div class="proj-type">Retail · Berlin · Erlebnisraum</div>
+          </div>
+          <div class="proj-arrow">→</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services section" id="leistungen">
+    <p class="section-eyebrow reveal">Was ich tue</p>
+    <h2 class="section-title reveal">Leistungen</h2>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-title">Wohn&shy;raum</div>
+        <p class="service-desc">Vom ersten Gespräch bis zum fertigen Zuhause. Raumplanung, Materialien, Licht, Möbel – alles aus einer Hand.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-title">Büro & Workplace</div>
+        <p class="service-desc">Arbeitswelten, die zur Unternehmenskultur passen. Büros, in denen Teams fokussiert arbeiten und sich gerne aufhalten.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-title">Retail & Hospitality</div>
+        <p class="service-desc">Stores, Restaurants und Hotels, die eine Geschichte erzählen. Vom Konzept bis zur Eröffnung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process section" id="prozess">
+    <p class="section-eyebrow reveal">Wie ich arbeite</p>
+    <h2 class="section-title reveal">Prozess</h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-num">01 — Kennenlernen</div>
+        <div class="step-title">Zuhören</div>
+        <p class="step-desc">Ein offenes Gespräch über deine Räume, Gewohnheiten und Ziele. Was funktioniert nicht? Was soll sich verändern?</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">02 — Strategie</div>
+        <div class="step-title">Konzept</div>
+        <p class="step-desc">Raumkonzept mit Grundriss, Moodboard und Materialauswahl. Klar und budgetorientiert – ohne Überraschungen.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">03 — Design</div>
+        <div class="step-title">Planung</div>
+        <p class="step-desc">Detaillierte Planung mit realistischen Visualisierungen. Du siehst das Ergebnis, bevor es entsteht.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-num">04 — Delivery</div>
+        <div class="step-title">Umsetzung</div>
+        <p class="step-desc">Ich koordiniere alle Gewerke und begleite die Umsetzung – bis alles sitzt und du begeistert bist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="kontakt">
+    <div class="contact-inner">
+      <div>
+        <p class="section-eyebrow reveal">Projekt starten</p>
+        <h2 class="contact-title reveal">Lass uns<br><em style="color:var(--neon)">reden.</em></h2>
+        <div class="contact-details reveal">
+          <div><div class="cdl">Email</div><div class="cdv">hallo@ullizelle.de</div></div>
+          <div><div class="cdl">Standort</div><div class="cdv">Berlin, Deutschland</div></div>
+          <div><div class="cdl">LinkedIn</div><div class="cdv">linkedin.com/in/ulli-zelle</div></div>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="return false;">
+        <div class="form-row">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-input" placeholder="Dein Name">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="deine@email.de">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Projekttyp</label>
+          <input type="text" class="form-input" placeholder="Wohnung / Büro / Retail / ...">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Nachricht</label>
+          <textarea class="form-textarea" placeholder="Erzähl mir kurz von deinem Projekt..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Absenden →</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="images/uz_logo_transparent.png" alt="UZ">
+      <span>Ulli Zelle</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Datenschutz</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Ulrike Zelle</span>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightbox">
+    <div class="lightbox-header">
+      <div>
+        <div class="lb-title" id="lb-title"></div>
+        <div class="lb-meta" id="lb-meta"></div>
+      </div>
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+    </div>
+    <div class="lb-stage">
+      <button class="lb-nav lb-prev" onclick="lbNav(-1)">←</button>
+      <img class="lb-img" id="lb-img" src="" alt="">
+      <button class="lb-nav lb-next" onclick="lbNav(1)">→</button>
+    </div>
+    <div class="lb-thumbs" id="lb-thumbs"></div>
+  </div>
+
+  <script>
+    const PROJECTS = {
+      kpm: {
+        title: 'KPM Königliche Porzellan-Manufaktur',
+        meta: 'Retail · Berlin · Flagship Store',
+        imgs: [
+          { src: 'kpm_02_lounge_blau.jpg' },
+          { src: 'kpm_01_lab_kueche.jpg' },
+          { src: 'kpm_03_regal_detail.jpg' },
+          { src: 'kpm_04_lab_hocker.jpg' },
+        ]
+      },
+      amberra: {
+        title: 'Amberra HQ Berlin',
+        meta: 'Workplace · Berlin · Historisches Gewölbegebäude',
+        imgs: [
+          { src: 'amberra_01_halle_gewoelbe.jpg' },
+          { src: 'amberra_02_meetingroom_vorhang.jpg' },
+          { src: 'amberra_03_lounge_bts.jpg' },
+          { src: 'amberra_04_meetingroom_clean.jpg' },
+        ]
+      },
+      ikea: {
+        title: 'Ikea Office Berlin Spandau',
+        meta: 'Workplace · Berlin · Konferenzbereich',
+        imgs: [
+          { src: 'ikea_01_simplicity_frontal.jpg' },
+          { src: 'ikea_02_simplicity_weitwinkel.jpg' },
+        ]
+      }
+    };
+
+    let cur = null, idx = 0;
+
+    function openLightbox(project) {
+      cur = project; idx = 0;
+      document.getElementById('lb-title').textContent = PROJECTS[project].title;
+      document.getElementById('lb-meta').textContent = PROJECTS[project].meta;
+      buildThumbs(); showImg(0);
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function buildThumbs() {
+      const c = document.getElementById('lb-thumbs');
+      c.innerHTML = '';
+      PROJECTS[cur].imgs.forEach((img, i) => {
+        const t = document.createElement('img');
+        t.className = 'lb-thumb' + (i===0?' active':'');
+        t.src = img.src; t.onclick = () => showImg(i);
+        c.appendChild(t);
+      });
+    }
+    function showImg(i) {
+      const imgs = PROJECTS[cur].imgs;
+      idx = (i + imgs.length) % imgs.length;
+      const el = document.getElementById('lb-img');
+      el.classList.remove('loaded');
+      el.src = imgs[idx].src;
+      el.onload = () => el.classList.add('loaded');
+      document.querySelectorAll('.lb-thumb').forEach((t,j) => t.classList.toggle('active', j===idx));
+    }
+    function lbNav(d) { showImg(idx+d); }
+
+    document.addEventListener('keydown', e => {
+      if (!document.getElementById('lightbox').classList.contains('active')) return;
+      if (e.key==='ArrowLeft') lbNav(-1);
+      if (e.key==='ArrowRight') lbNav(1);
+      if (e.key==='Escape') closeLightbox();
+    });
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target===document.getElementById('lightbox')) closeLightbox();
+    });
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', scrollY > 50);
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i*70);
+          obs.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
