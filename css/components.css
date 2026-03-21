@@ -1,0 +1,228 @@
+/* ── FOCUS VISIBLE — Barrierefreiheit ── */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent-spot);
+  outline-offset: 2px;
+  box-shadow: var(--focus-ring);
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  padding: 0.85rem 1.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.25s, gap 0.25s;
+}
+.btn-primary:hover { background: var(--accent); gap: 1.2rem; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s, gap 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: var(--accent); gap: 1rem; border-color: var(--accent); }
+
+/* ── PROJECT CARDS ── */
+.project-card {
+  background: var(--bg);
+  overflow: hidden;
+  cursor: pointer;
+}
+.project-card:nth-child(1) { grid-column: span 7; }
+.project-card:nth-child(2) { grid-column: span 5; }
+.project-card:nth-child(3) { grid-column: span 5; }
+.project-card:nth-child(4) { grid-column: span 7; }
+
+.proj-inner {
+  aspect-ratio: 4/3;
+  position: relative;
+  overflow: hidden;
+}
+.project-card:nth-child(1) .proj-inner,
+.project-card:nth-child(4) .proj-inner { aspect-ratio: 16/9; }
+
+.proj-inner img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.4s;
+  filter: brightness(0.93) saturate(0.85);
+}
+.project-card:hover .proj-inner img {
+  transform: scale(1.05);
+  filter: brightness(0.65) saturate(1.0);
+}
+.proj-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30,26,23,0.8) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+}
+.project-card:hover .proj-overlay { opacity: 1; }
+.proj-cta {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bg);
+}
+.proj-info {
+  padding: 1.2rem 1.4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+}
+.proj-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+.proj-type {
+  font-size: 0.65rem;
+  color: var(--mid);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.proj-arrow {
+  width: 32px; height: 32px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.project-card:hover .proj-arrow {
+  background: var(--accent); color: var(--bg); border-color: var(--accent);
+}
+
+/* ── LIGHTBOX ── */
+.lightbox-overlay {
+  position: fixed; inset: 0;
+  background: rgba(30,26,23,0.97);
+  z-index: 1000;
+  display: flex; flex-direction: column;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.lightbox-overlay.active { opacity: 1; pointer-events: all; }
+.lightbox-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+.lb-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.1rem;
+  color: var(--bg);
+}
+.lb-meta { font-size: 0.65rem; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.2rem; }
+.lb-close {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  width: 40px; height: 40px;
+  cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lb-close:hover { background: var(--accent2); color: white; border-color: transparent; }
+.lb-stage {
+  flex: 1; display: flex;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden; min-height: 0;
+}
+.lb-img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain;
+  opacity: 0; transform: scale(0.97);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.lb-img.loaded { opacity: 1; transform: scale(1); }
+.lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(30,26,23,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  width: 48px; height: 48px;
+  cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.lb-nav:hover { background: var(--accent); border-color: transparent; color: white; }
+.lb-prev { left: 2rem; }
+.lb-next { right: 2rem; }
+.lb-thumbs {
+  display: flex; gap: 0.4rem;
+  justify-content: center;
+  padding: 1.2rem 1.5rem 1.8rem;
+  flex-shrink: 0;
+}
+.lb-thumb {
+  width: 64px; height: 44px;
+  object-fit: cover; cursor: pointer;
+  opacity: 0.3; border: 2px solid transparent;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+.lb-thumb.active { opacity: 1; border-color: var(--accent2); }
+
+/* ── FORM MESSAGES ── */
+.form-msg {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  display: none;
+}
+.form-msg.success {
+  display: block;
+  background: rgba(125,92,62,0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.form-msg.error {
+  display: block;
+  background: rgba(255,92,53,0.08);
+  border: 1px solid var(--neon);
+  color: var(--neon);
+}
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.form-input.invalid, .form-textarea.invalid {
+  border-bottom: 2px solid var(--neon);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .project-card:nth-child(n) { grid-column: span 12; }
+}
