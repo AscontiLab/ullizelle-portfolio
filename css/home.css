@@ -178,10 +178,11 @@
   padding: 5rem 4rem;
   display: flex;
   justify-content: center;
+  gap: 4rem;
   border-top: 1px solid var(--border);
 }
 .testimonial {
-  max-width: 700px;
+  max-width: 550px;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -204,7 +205,7 @@
 }
 
 @media (max-width: 900px) {
-  .testimonial-section { padding: 3rem 1.5rem; }
+  .testimonial-section { padding: 3rem 1.5rem; flex-direction: column; gap: 2rem; }
 }
 
 /* ── PROJECTS SECTION ── */
