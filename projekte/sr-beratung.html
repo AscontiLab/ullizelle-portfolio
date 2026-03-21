@@ -32,6 +32,7 @@
   <link rel="stylesheet" href="../css/components.css">
   <link rel="stylesheet" href="../css/project-page.css">
   <meta name="view-transition" content="same-origin">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
@@ -44,7 +45,12 @@
         <span class="nav-logo-sub">Interior Design & Workplace Consulting</span>
       </div>
     </a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" id="nav-hamburger" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menü öffnen">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="../index.html#about" data-nav-link="about" aria-label="Studio - Über mich">Studio</a></li>
       <li><a href="./" data-nav-link="projekte" aria-label="Projekte ansehen">Projekte</a></li>
       <li><a href="../index.html#leistungen" data-nav-link="leistungen" aria-label="Leistungen anzeigen">Leistungen</a></li>
@@ -103,7 +109,7 @@
         <img class="proj-nav-thumb" src="../images/ikea/ikea-08-open-office-motto.jpg" alt="IKEA Office Berlin Spandau" loading="lazy">
         <div><div class="proj-nav-label">← Vorheriges Projekt</div><div class="proj-nav-name">IKEA Office Berlin Spandau</div></div>
       </a>
-      <a href="./" class="proj-nav-link next">
+      <a href="seydel.html" class="proj-nav-link next">
         <img class="proj-nav-thumb" src="../images/seydel/seydel-01-essbereich.jpg" alt="Privatwohnung Berlin" loading="lazy">
         <div><div class="proj-nav-label">Nächstes Projekt →</div><div class="proj-nav-name">Privatwohnung Berlin</div></div>
       </a>
