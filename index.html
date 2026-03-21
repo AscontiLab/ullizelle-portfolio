@@ -72,18 +72,18 @@
   <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
   <nav id="nav" aria-label="Hauptnavigation">
-    <a href="#" class="nav-logo" aria-label="Ulli Zelle - Startseite" aria-current="page">
+    <a href="/" class="nav-logo" aria-label="Ulli Zelle - Startseite" aria-current="page">
       <img src="images/shared/uz_logo_transparent.svg" alt="UZ Logo" width="34" height="34">
       <div class="nav-logo-text">
         <span class="nav-logo-name">Ulli Zelle</span>
-        <span class="nav-logo-sub">Interior Design & Workplace Consulting · Berlin</span>
+        <span class="nav-logo-sub">Interior Design & Workplace Consulting</span>
       </div>
     </a>
     <ul class="nav-links">
-      <li><a href="#projekte" aria-label="Projekte ansehen">Projekte</a></li>
-      <li><a href="#leistungen" aria-label="Leistungen anzeigen">Leistungen</a></li>
-      <li><a href="#prozess" aria-label="Arbeitsprozess">Prozess</a></li>
-      <li><a href="#kontakt" class="nav-cta" aria-label="Kontakt aufnehmen">Kontakt</a></li>
+      <li><a href="#about" data-nav-link="about" aria-label="Studio - Ueber mich">Studio</a></li>
+      <li><a href="/projekte/" data-nav-link="projekte" aria-label="Projekte ansehen">Projekte</a></li>
+      <li><a href="#leistungen" data-nav-link="leistungen" aria-label="Leistungen anzeigen">Leistungen</a></li>
+      <li><a href="#kontakt" class="nav-cta" data-nav-link="kontakt" aria-label="Projekt anfragen">Projekt anfragen</a></li>
     </ul>
   </nav>
 
@@ -101,7 +101,7 @@
         Für Privatpersonen und Unternehmen in Berlin und bundesweit.
       </p>
       <div class="hero-actions">
-        <a href="#projekte" class="btn-primary" aria-label="Projekte ansehen">Projekte ansehen →</a>
+        <a href="/projekte/" class="btn-primary" aria-label="Projekte ansehen">Projekte ansehen &rarr;</a>
         <a href="#kontakt" class="btn-ghost" aria-label="Beratungsgespräch vereinbaren">Beratungsgespräch →</a>
       </div>
     </div>
@@ -149,62 +149,65 @@
     <h2 class="section-title reveal">Projekte</h2>
     <div class="projects-grid reveal">
 
-      <div class="project-card" onclick="openLightbox('kpm')">
-        <div class="proj-inner">
-          <img src="images/kpm/kpm_02_lounge_blau.jpg" width="980" height="980" loading="lazy" decoding="async" alt="KPM Königliche Porzellan-Manufaktur - Lounge im Flagship Store Berlin">
-          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
-        </div>
-        <div class="proj-info">
-          <div>
-            <div class="proj-name">KPM Königliche Porzellan-Manufaktur</div>
-            <div class="proj-type">Retail · Berlin · Flagship Store</div>
-          </div>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
-      <div class="project-card" onclick="openLightbox('amberra')">
+      <a href="/projekte/amberra.html" class="project-card">
         <div class="proj-inner">
           <img src="images/amberra/amberra_01_halle_gewoelbe.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="Amberra HQ Berlin - Workplace Design im historischen Gewölbegebäude">
-          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+          <div class="proj-overlay"><span class="proj-cta">Projekt ansehen &rarr;</span></div>
         </div>
         <div class="proj-info">
           <div>
             <div class="proj-name">Amberra HQ Berlin</div>
             <div class="proj-type">Workplace · Berlin · Gewölbegebäude</div>
           </div>
-          <div class="proj-arrow">→</div>
+          <div class="proj-arrow">&rarr;</div>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card" onclick="openLightbox('ikea')">
+      <a href="/projekte/kpm.html" class="project-card">
         <div class="proj-inner">
-          <img src="images/ikea/ikea_01_simplicity_frontal.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="Ikea Office Berlin Spandau - Konferenzbereich Design">
-          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
+          <img src="images/kpm/kpm_02_lounge_blau.jpg" width="980" height="980" loading="lazy" decoding="async" alt="KPM Königliche Porzellan-Manufaktur - Lounge im Flagship Store Berlin">
+          <div class="proj-overlay"><span class="proj-cta">Projekt ansehen &rarr;</span></div>
         </div>
         <div class="proj-info">
           <div>
-            <div class="proj-name">Ikea Office Berlin Spandau</div>
+            <div class="proj-name">KPM Königliche Porzellan-Manufaktur</div>
+            <div class="proj-type">Retail · Berlin · Flagship Store</div>
+          </div>
+          <div class="proj-arrow">&rarr;</div>
+        </div>
+      </a>
+
+      <a href="/projekte/raeuber-und-toechter.html" class="project-card">
+        <div class="proj-inner">
+          <img src="images/raeuber-und-toechter/rut-05-zwillingsbett-kinder.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="RäuberundTöchter - Maßgefertigtes Kinderbett mit verspieltem Design">
+          <div class="proj-overlay"><span class="proj-cta">Projekt ansehen &rarr;</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">RäuberundTöchter Kinderbett</div>
+            <div class="proj-type">Produktdesign · Kindermöbel</div>
+          </div>
+          <div class="proj-arrow">&rarr;</div>
+        </div>
+      </a>
+
+      <a href="/projekte/ikea.html" class="project-card">
+        <div class="proj-inner">
+          <img src="images/ikea/ikea_02_simplicity_weitwinkel.jpg" width="1288" height="952" loading="lazy" decoding="async" alt="IKEA Office Berlin Spandau - Konferenzbereich Design">
+          <div class="proj-overlay"><span class="proj-cta">Projekt ansehen &rarr;</span></div>
+        </div>
+        <div class="proj-info">
+          <div>
+            <div class="proj-name">IKEA Office Berlin Spandau</div>
             <div class="proj-type">Workplace · Berlin · Konferenzbereich</div>
           </div>
-          <div class="proj-arrow">→</div>
+          <div class="proj-arrow">&rarr;</div>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card" onclick="openLightbox('kpm')">
-        <div class="proj-inner">
-          <img src="images/kpm/kpm_01_lab_kueche.jpg" width="1568" height="784" loading="lazy" decoding="async" alt="KPM Lab & Kitchen - Erlebnisraum im Flagship Store Berlin">
-          <div class="proj-overlay"><span class="proj-cta">Galerie öffnen →</span></div>
-        </div>
-        <div class="proj-info">
-          <div>
-            <div class="proj-name">KPM Lab & Kitchen</div>
-            <div class="proj-type">Retail · Berlin · Erlebnisraum</div>
-          </div>
-          <div class="proj-arrow">→</div>
-        </div>
-      </div>
-
+    </div>
+    <div class="reveal" style="text-align:center; margin-top:3rem;">
+      <a href="/projekte/" class="btn-primary" aria-label="Alle Projekte ansehen">Alle Projekte &rarr;</a>
     </div>
   </section>
 
@@ -303,32 +306,15 @@
       <span>Ulli Zelle</span>
     </div>
     <ul class="footer-links">
-      <li><a href="impressum.html">Impressum</a></li>
-      <li><a href="datenschutz.html">Datenschutz</a></li>
+      <li><a href="/projekte/">Projekte</a></li>
+      <li><a href="/impressum.html">Impressum</a></li>
+      <li><a href="/datenschutz.html">Datenschutz</a></li>
     </ul>
     <span class="footer-copy">&copy; 2026 Ulrike Zelle</span>
   </footer>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Projektgalerie">
-    <div class="lightbox-header">
-      <div>
-        <div class="lb-title" id="lb-title"></div>
-        <div class="lb-meta" id="lb-meta"></div>
-      </div>
-      <button class="lb-close" onclick="closeLightbox()" aria-label="Lightbox schließen">✕</button>
-    </div>
-    <div class="lb-stage">
-      <button class="lb-nav lb-prev" onclick="lbNav(-1)" aria-label="Vorheriges Bild">←</button>
-      <img class="lb-img" id="lb-img" src="" alt="Projektbild">
-      <button class="lb-nav lb-next" onclick="lbNav(1)" aria-label="Nächstes Bild">→</button>
-    </div>
-    <div class="lb-thumbs" id="lb-thumbs"></div>
-  </div>
-
   <script defer src="js/nav.js"></script>
   <script defer src="js/reveal.js"></script>
-  <script defer src="js/lightbox.js"></script>
   <script defer src="js/contact.js"></script>
 </body>
 </html>

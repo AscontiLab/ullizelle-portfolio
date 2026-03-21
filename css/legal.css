@@ -1,0 +1,88 @@
+/* ── LEGAL PAGES (Impressum, Datenschutz) ── */
+.legal-content {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 8rem 2rem 5rem;
+}
+.legal-content h1 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 3rem;
+}
+.legal-content h2 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+}
+.legal-content h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.legal-content p, .legal-content li {
+  color: var(--text2);
+  font-size: 0.92rem;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.legal-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.legal-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+.legal-content a:hover { border-color: var(--accent); }
+
+/* ── FOOTER (fuer Seiten ohne home.css) ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.8rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg2);
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.footer-logo img {
+  width: 26px; height: 26px;
+  object-fit: contain;
+  opacity: 0.85;
+}
+.footer-logo span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.footer-links {
+  display: flex; gap: 2rem; list-style: none;
+}
+.footer-links a {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-copy { font-size: 0.65rem; color: var(--mid); }
+
+@media (max-width: 900px) {
+  .legal-content { padding: 6rem 1.5rem 3rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}

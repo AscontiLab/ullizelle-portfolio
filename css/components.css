@@ -43,6 +43,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: var(--bg);
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--text);
+  display: block;
 }
 .project-card:nth-child(1) { grid-column: span 7; }
 .project-card:nth-child(2) { grid-column: span 5; }
