@@ -22,7 +22,8 @@
   }
 
   function validateEmail(email) {
-    return email.indexOf('@') > 0 && email.indexOf('.') > email.indexOf('@');
+    var at = email.indexOf('@');
+    return at > 0 && email.lastIndexOf('.') > at;
   }
 
   form.addEventListener('submit', function(e) {
