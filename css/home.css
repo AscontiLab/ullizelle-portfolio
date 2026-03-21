@@ -205,6 +205,40 @@
   color: var(--mid);
 }
 
+/* ── TESTIMONIAL ── */
+.testimonial-section {
+  padding: 5rem 4rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+}
+.testimonial {
+  max-width: 700px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.testimonial p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--text);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+.testimonial cite {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  font-style: normal;
+}
+
+@media (max-width: 900px) {
+  .testimonial-section { padding: 3rem 1.5rem; }
+}
+
 /* ── PROJECTS SECTION ── */
 .projects { border-top: 1px solid var(--border); background: var(--bg2); }
 .projects-grid {
