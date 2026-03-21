@@ -61,17 +61,15 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Wird gesendet...';
 
-    var data = {
-      name: name.value.trim(),
-      email: email.value.trim(),
-      projekttyp: document.getElementById('contact-type').value.trim(),
-      nachricht: message.value.trim()
-    };
+    var params = new URLSearchParams();
+    params.append('name', name.value.trim());
+    params.append('email', email.value.trim());
+    params.append('projekttyp', document.getElementById('contact-type').value.trim());
+    params.append('nachricht', message.value.trim());
 
     fetch(WEBHOOK_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: params
     })
     .then(function(response) {
       if (response.ok) {
