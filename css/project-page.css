@@ -19,7 +19,7 @@
   background: linear-gradient(to top, rgba(30,26,23,0.75) 0%, transparent 100%);
 }
 .proj-hero-title {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: clamp(1.6rem, 3.5vw, 3rem);
   font-weight: 600;
   color: #fff;
@@ -61,7 +61,7 @@
   padding: 0 4rem;
 }
 .proj-narrative h2 {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -186,7 +186,7 @@
   z-index: 1;
 }
 .proj-cta-strip h2 {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 600;
   max-width: 700px;

@@ -5,7 +5,7 @@
   padding: 8rem 2rem 5rem;
 }
 .legal-content h1 {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 600;
   line-height: 1.1;
@@ -13,7 +13,7 @@
   margin-bottom: 3rem;
 }
 .legal-content h2 {
-  font-family: 'Unbounded', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   color: var(--text);

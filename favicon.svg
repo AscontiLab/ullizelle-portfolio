@@ -1,6 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68" width="68" height="68">
-  <text x="50%" y="54%" dominant-baseline="central" text-anchor="middle"
-        font-family="'Unbounded', 'Arial Black', sans-serif"
-        font-weight="700" font-size="30" fill="#1E1A17"
-        letter-spacing="-1">UZ</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- UZ logo: U and Z connected by a shared baseline stroke -->
+  <!-- U letter: vertical strokes with curved bottom -->
+  <path d="
+    M 8 15
+    L 8 62
+    Q 8 82 28 82
+    L 28 82
+    Q 48 82 48 62
+    L 48 15
+    L 38 15
+    L 38 62
+    Q 38 73 28 73
+    Q 18 73 18 62
+    L 18 15
+    Z
+  " fill="#1E1A17"/>
+  <!-- Z letter -->
+  <path d="
+    M 52 15
+    L 52 25
+    L 78 25
+    L 52 73
+    L 52 82
+    L 92 82
+    L 92 73
+    L 66 73
+    L 92 25
+    L 92 15
+    Z
+  " fill="#1E1A17"/>
 </svg>
