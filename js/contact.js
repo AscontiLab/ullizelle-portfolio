@@ -37,6 +37,7 @@
     var name = document.getElementById('contact-name');
     var email = document.getElementById('contact-email');
     var message = document.getElementById('contact-message');
+    var dsgvo = document.getElementById('contact-dsgvo');
 
     var errors = [];
     if (!name.value.trim()) {
@@ -50,6 +51,9 @@
     if (!message.value.trim()) {
       message.classList.add('invalid');
       errors.push('Nachricht');
+    }
+    if (!dsgvo.checked) {
+      errors.push('Datenschutz-Zustimmung');
     }
 
     if (errors.length > 0) {
