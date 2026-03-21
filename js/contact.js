@@ -80,11 +80,11 @@
       }
     })
     .catch(function() {
-      showMsg('Leider konnte die Nachricht nicht gesendet werden. Bitte versuche es später erneut oder schreibe direkt an hello@ullizelle.de.', 'error');
+      showMsg('Leider konnte die Nachricht nicht gesendet werden. Bitte versuche es später erneut oder schreibe direkt an hallo@ullizelle.de.', 'error');
     })
     .finally(function() {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Absenden \u2192';
+      submitBtn.textContent = 'Nachricht senden \u2192';
     });
   });
 })();

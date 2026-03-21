@@ -12,6 +12,14 @@ if (hamburger && navLinks) {
     hamburger.setAttribute('aria-expanded', String(!expanded));
     navLinks.classList.toggle('open');
     document.body.style.overflow = expanded ? '' : 'hidden';
+    if (!expanded) {
+      // Menue geoeffnet: Fokus auf ersten Link
+      var firstLink = navLinks.querySelector('a');
+      if (firstLink) firstLink.focus();
+    } else {
+      // Menue geschlossen: Fokus zurueck auf Hamburger
+      hamburger.focus();
+    }
   });
   // Menue schliessen bei Link-Klick
   navLinks.querySelectorAll('a').forEach(function(link) {
@@ -19,6 +27,7 @@ if (hamburger && navLinks) {
       hamburger.setAttribute('aria-expanded', 'false');
       navLinks.classList.remove('open');
       document.body.style.overflow = '';
+      hamburger.focus();
     });
   });
   // Menue schliessen bei Escape-Taste
@@ -27,6 +36,21 @@ if (hamburger && navLinks) {
       hamburger.setAttribute('aria-expanded', 'false');
       navLinks.classList.remove('open');
       document.body.style.overflow = '';
+      hamburger.focus();
+    }
+  });
+  // Focus-Trap: Tab bleibt im offenen Menue
+  document.addEventListener('keydown', function(e) {
+    if (!navLinks.classList.contains('open') || e.key !== 'Tab') return;
+    var focusable = navLinks.querySelectorAll('a, button');
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
     }
   });
 }
