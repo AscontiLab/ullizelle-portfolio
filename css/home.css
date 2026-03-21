@@ -204,7 +204,10 @@
 }
 
 @media (max-width: 900px) {
-  .testimonial-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+  .testimonial-section { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 2.5rem; }
+  .testimonial p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; }
+  .testimonial { padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  .testimonial:last-child { padding-bottom: 0; border-bottom: none; }
 }
 
 /* ── PROJECTS SECTION ── */
