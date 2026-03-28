@@ -156,6 +156,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   white-space: nowrap;
 }
 
+/* ── HONEYPOT (Anti-Spam) ── */
+.hp-wrap {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── FORM MESSAGES ── */
 .form-msg {
   margin-top: 1rem;

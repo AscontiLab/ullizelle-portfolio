@@ -1,15 +1,15 @@
-/* ── Kontaktformular: Validierung und Webhook-Versand ── */
+/* ── Kontaktformular: Validierung, Anti-Spam und Webhook-Versand ── */
 (function() {
-  // ============================================================
-  // WEBHOOK URL KONFIGURATION
-  // Ersetze diese URL mit dem echten n8n Webhook-Endpoint:
-  // z.B. 'https://agents.umzwei.de/webhook/contact-form'
-  // ============================================================
   var WEBHOOK_URL = 'https://agents.umzwei.de/webhook/ullizelle-contact';
+  var MIN_SUBMIT_TIME_MS = 3000; // Mensch braucht mindestens 3 Sekunden
 
   var form = document.getElementById('contact-form');
   var submitBtn = document.getElementById('contact-submit');
   var msgEl = document.getElementById('form-msg');
+  var tsField = document.getElementById('contact-ts');
+
+  // Timestamp setzen wenn Seite geladen wird
+  tsField.value = Date.now().toString();
 
   function showMsg(text, type) {
     msgEl.textContent = text;
@@ -29,6 +29,24 @@
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     clearMsg();
+
+    // Anti-Spam: Honeypot pruefen
+    var honeypot = document.getElementById('contact-website');
+    if (honeypot.value) {
+      // Bot erkannt — tue so als waere es erfolgreich
+      showMsg('Vielen Dank! Deine Nachricht wurde gesendet. Ich melde mich in Kürze.', 'success');
+      form.reset();
+      return;
+    }
+
+    // Anti-Spam: Zeitpruefung
+    var loadedAt = parseInt(tsField.value, 10);
+    var elapsed = Date.now() - loadedAt;
+    if (elapsed < MIN_SUBMIT_TIME_MS) {
+      showMsg('Vielen Dank! Deine Nachricht wurde gesendet. Ich melde mich in Kürze.', 'success');
+      form.reset();
+      return;
+    }
 
     // Alle invalid-Markierungen entfernen
     form.querySelectorAll('.invalid').forEach(function(el) {
@@ -71,6 +89,8 @@
     params.append('email', email.value.trim());
     params.append('projekttyp', document.getElementById('contact-type').value.trim());
     params.append('nachricht', message.value.trim());
+    params.append('_hp', honeypot.value);
+    params.append('_elapsed', elapsed.toString());
 
     fetch(WEBHOOK_URL, {
       method: 'POST',
@@ -80,6 +100,7 @@
       if (response.ok) {
         showMsg('Vielen Dank! Deine Nachricht wurde gesendet. Ich melde mich in Kürze.', 'success');
         form.reset();
+        tsField.value = Date.now().toString();
       } else {
         throw new Error('Server-Fehler');
       }
